@@ -1,4 +1,5 @@
-export interface listMenuHeader {
+export interface listMenuHeaderModal {
   id: string;
   name: string;
+  url?: string;
 }

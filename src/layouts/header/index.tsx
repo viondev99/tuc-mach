@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import classes from "./header.module.scss";
 import Link from "next/link";
 import Image from "next/image";
@@ -6,21 +6,27 @@ import cx from "classnames";
 
 import logoHome from "../../assets/img/logo_header.png";
 import logoHomeScroll from "../../assets/img/logo_header_scroll.png";
-import { listMenuHeader } from "@/modals/header-modals";
+import { listMenuHeaderModal } from "@/modals/header-modals";
 import DropdownList from "./dropdownList";
+import { useRouter } from "next/router";
 
-const listMenu: listMenuHeader[] = [
-  { id: "home", name: "HOME" },
-  { id: "menu", name: "MENU" },
-  { id: "book_table", name: "BOOK A TABLE" },
-  { id: "about", name: "ABOUT" },
-  { id: "blog", name: "BLOG" },
+export const listMenuHeader: listMenuHeaderModal[] = [
+  { id: "home", name: "HOME", url: "/" },
+  { id: "menu", name: "MENU", url: "/menu" },
+  { id: "book_table", name: "BOOK A TABLE", url: "/book-a-table" },
+  { id: "about", name: "ABOUT", url: "/about" },
+  { id: "blog", name: "BLOG", url: "/blog" },
 ];
 
 const Header: FC = () => {
+  const { asPath } = useRouter();
   const [showMenuMobile, setShowMenuMobile] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [selectedLink, setSelectedLink] = useState<string | null>(null);
+  const handleLinkClick = useCallback((link: string) => {
+    setSelectedLink(link);
+  }, []);
   const handleScroll = () => {
     if (window.scrollY > 45) {
       setIsScrolled(true);
@@ -85,13 +91,24 @@ const Header: FC = () => {
           </div>
           <div className={classes.itemRight}>
             <ul className={classes.listMenu}>
-              {listMenu.map((it) => (
+              {listMenuHeader.map((it) => (
                 <li key={it.id} className={classes.itemListMenu}>
                   <Link
-                    href={"/"}
-                    className={cx(classes.itemLink, {
-                      [classes.colorBlackLink]: !!isScrolled,
-                    })}
+                    href={`${it.url}`}
+                    onClick={() => handleLinkClick(it.id)}
+                    className={cx(
+                      classes.itemLink,
+                      {
+                        [classes.colorBlackLink]: !!isScrolled,
+                      },
+                      selectedLink === it.id ? classes.selected : "",
+                      asPath === "/"
+                        ? it.id === "home"
+                          ? classes.selected
+                          : ""
+                        : "",
+                      it.url === asPath ? classes.selected : '',
+                    )}
                   >
                     {it.name}
                   </Link>
@@ -100,7 +117,11 @@ const Header: FC = () => {
             </ul>
           </div>
         </div>
-        {!!showMenuMobile && <DropdownList />}
+        {!!showMenuMobile && (
+          <DropdownList
+            setShowMenuMobile={() => setShowMenuMobile(!showMenuMobile)}
+          />
+        )}
       </nav>
     </div>
   );

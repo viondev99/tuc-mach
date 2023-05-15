@@ -1,0 +1,53 @@
+@import "../../../styles/variables.module.scss";
+
+.Container {
+  @media (min-width: 768px) {
+    display: none;
+  }
+  width: 100%;
+  background-color: $light-black;
+  margin-right: 0;
+  margin-left: 0;
+  max-height: 340px;
+  overflow-y: auto;
+  float: right !important;
+  overflow-x: visible;
+  border-top: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.wrapListMenu {
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: $light-black;
+  padding: 5px 0;
+}
+
+.wrapListItem {
+  height: auto !important;
+  background-color: $light-black;
+  margin-right: 0;
+  position: relative;
+  padding-right: 0;
+  padding-left: 10px;
+  padding-top: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.linkItem {
+  line-height: 36px;
+  color: $white;
+  background-color: transparent;
+  font-size: px-to-rem(14);
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0;
+  position: relative;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+
+  &.selected {
+    color: $light-yellow;
+  }
+}

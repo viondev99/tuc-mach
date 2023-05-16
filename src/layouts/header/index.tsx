@@ -20,9 +20,9 @@ export const listMenuHeader: listMenuHeaderModal[] = [
 
 const Header: FC = () => {
   const { asPath } = useRouter();
-  const [showMenuMobile, setShowMenuMobile] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [hasScrolled, setHasScrolled] = useState(false);
+  const [showMenuMobile, setShowMenuMobile] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+  const [hasScrolled, setHasScrolled] = useState<boolean>(false);
   const [selectedLink, setSelectedLink] = useState<string | null>(null);
   const handleLinkClick = useCallback((link: string) => {
     setSelectedLink(link);
@@ -53,7 +53,7 @@ const Header: FC = () => {
             <button
               className={cx(classes.itemRightMobile, {
                 [classes.borderBlack]: !isScrolled,
-                [classes.openMenu]: !!showMenuMobile,
+                [classes.openMenu]: showMenuMobile,
               })}
               onClick={() => setShowMenuMobile(!showMenuMobile)}
             >
@@ -74,7 +74,7 @@ const Header: FC = () => {
               ></span>
             </button>
             <Link href={`/`} className={classes.linkLogoHeader}>
-              {isScrolled ? (
+              {!isScrolled ? (
                 <Image
                   src={logoHome}
                   alt="logo"
@@ -99,7 +99,7 @@ const Header: FC = () => {
                     className={cx(
                       classes.itemLink,
                       {
-                        [classes.colorBlackLink]: !!isScrolled,
+                        [classes.colorBlackLink]: isScrolled,
                       },
                       selectedLink === it.id ? classes.selected : "",
                       asPath === "/"
@@ -117,7 +117,7 @@ const Header: FC = () => {
             </ul>
           </div>
         </div>
-        {!!showMenuMobile && (
+        {showMenuMobile && (
           <DropdownList
             setShowMenuMobile={() => setShowMenuMobile(!showMenuMobile)}
           />

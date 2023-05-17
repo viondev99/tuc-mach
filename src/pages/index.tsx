@@ -9,7 +9,7 @@ export default function Home() {
       <Head>
         <title>Tuc Mach Restaurant</title>
         <meta
-          name="description"
+          name="title"
           content="Nhà Hàng Túc Mạch - Đậm Chất, Đậm Vị"
         />
         <meta name="og:description" content="Hân Hạnh Phục Vụ Quý Khách" />

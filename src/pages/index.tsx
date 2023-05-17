@@ -17,7 +17,7 @@ export default function Home() {
           name="author"
           content="Vion Nguyen - facebook.com/minhhiep.vip99"
         />
-        <meta name="image" content={SeoImage} />
+        <meta name="image" content="http://7oroof.com/demos/steakin/assets/images/sliders/slide-bg/2.jpg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomePage />

@@ -1,6 +1,7 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useMemo, useState } from "react";
 import classes from "./section1.module.scss";
 import Image from "next/image";
+import cx from "classnames";
 
 import imgSlide1 from "../../../assets/img/slide1.png";
 import imgSlide2 from "../../../assets/img/slide2.png";
@@ -16,19 +17,26 @@ const Section1: FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide + 1) % 3);
-    }, 20000);
+    }, 200000000000000);
 
     return () => clearInterval(interval);
   }, [currentSlide]);
 
+  useEffect(() => {
+    updateDotColors(currentSlide);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentSlide]);
+
   const handleNextSlide = () => {
-    setCurrentSlide((currentSlide + 1) % 3);
-    updateDotColors((currentSlide + 1) % 3);
+    const nextSlide = (currentSlide + 1) % 3;
+    setCurrentSlide(nextSlide);
+    updateDotColors(nextSlide);
   };
 
   const handlePrevSlide = () => {
-    setCurrentSlide((currentSlide + 2) % 3);
-    updateDotColors((currentSlide + 2) % 3);
+    const prevSlide = (currentSlide + 2) % 3;
+    setCurrentSlide(prevSlide);
+    updateDotColors(prevSlide);
   };
 
   const handleDotClick = (index: number) => {
@@ -81,17 +89,9 @@ const Section1: FC = () => {
             {dotColors.map((isActive, index) => (
               <div
                 key={index}
-                className={classes.wrapDotItem}
-                style={{
-                  width: "5px",
-                  height: "5px",
-                  borderRadius: "50%",
-                  backgroundColor: isActive ? "red" : "white",
-                  margin: "0 20px",
-                  position: 'absolute',
-                  left: '50%',
-                  bottom: '10px'
-                }}
+                className={cx(classes.wrapDotItem, {
+                  [classes.selectedSlide]: isActive,
+                })}
                 onClick={() => handleDotClick(index)}
               />
             ))}

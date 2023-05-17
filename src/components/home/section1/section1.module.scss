@@ -7,11 +7,19 @@
   padding-top: 0;
   padding-bottom: 0;
   overflow: visible;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    height: 550px !important;
+  }
+
+  @media (min-width: 320px) and (max-width: 767px) {
+    height: 400px !important;
+  }
 }
 
 .wrapSection {
   overflow: visible;
-  height: 700px;
+  height: 100%;
   position: relative;
   z-index: 0;
   width: 100%;
@@ -20,7 +28,7 @@
 .coverSection {
   margin-top: 0px;
   margin-bottom: 0px;
-  height: 700px;
+  height: 100%;
   perspective: 2500px;
   backface-visibility: hidden;
   transform-style: preserve-3d;
@@ -31,7 +39,7 @@
   visibility: visible;
   display: block;
   overflow: hidden;
-  width: 1863px;
+  width: 100%;
   height: 100%;
   max-height: none;
   left: 0px;
@@ -67,6 +75,25 @@
   opacity: 1;
   transform: matrix(1, 0, 0, 1, 0, 0);
 
+  &::after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    content: "";
+    pointer-events: none;
+    background-color: $black-shadow;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(27, 26, 26, 0.55) 0%,
+      rgba(27, 26, 26, 0) 34%,
+      rgba(27, 26, 26, 0) 82%
+    );
+    opacity: 0.8;
+  }
+
   .imgSlide {
     object-fit: cover;
     width: 100%;
@@ -91,7 +118,7 @@
     width: 28px;
     height: 108px;
     position: relative;
-    left: 11px;
+    left: 10px;
     text-align: center;
     object-fit: cover;
   }
@@ -112,7 +139,7 @@
     width: 28px;
     height: 108px;
     position: relative;
-    right: 4px;
+    right: 3px;
     text-align: center;
     object-fit: cover;
   }
@@ -120,21 +147,40 @@
 
 .listDotSlide {
   position: absolute;
-  width: 44px;
   height: 10px;
   top: 50%;
   transform: matrix(1, 0, 0, 1, -22, 305);
-  left: 50%;
+  left: 48%;
   z-index: 1000;
+  display: flex;
+
+  @media (max-width: 767px) {
+    top: 15%;
+    left: 46%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    top: 36%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1200px) {
+    left: 47%;
+  }
 }
 
 .wrapDotItem {
   cursor: pointer;
-  position: absolute;
-  left: 0px;
-  top: 0px;
+  height: 10px;
+  width: 10px;
   border-radius: 50%;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
   transition: box-shadow 0.3s ease;
   background: transparent;
+  margin: 0 10px;
+  padding: 1px;
+  border: solid 2px $white;
+
+  &.selectedSlide {
+    background-color: $white;
+  }
 }

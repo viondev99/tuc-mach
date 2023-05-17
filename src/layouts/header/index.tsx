@@ -59,17 +59,17 @@ const Header: FC = () => {
             >
               <span
                 className={cx(classes.iconBar, {
-                  [classes.iconBarBlack]: !isScrolled,
+                  [classes.iconBarBlack]: isScrolled,
                 })}
               ></span>
               <span
                 className={cx(classes.iconBar, {
-                  [classes.iconBarBlack]: !isScrolled,
+                  [classes.iconBarBlack]: isScrolled,
                 })}
               ></span>
               <span
                 className={cx(classes.iconBar, {
-                  [classes.iconBarBlack]: !isScrolled,
+                  [classes.iconBarBlack]: isScrolled,
                 })}
               ></span>
             </button>
@@ -107,7 +107,7 @@ const Header: FC = () => {
                           ? classes.selected
                           : ""
                         : "",
-                      it.url === asPath ? classes.selected : '',
+                      it.url === asPath ? classes.selected : ""
                     )}
                   >
                     {it.name}

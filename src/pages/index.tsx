@@ -1,8 +1,6 @@
 import Head from "next/head";
 import HomePage from "@/components/home";
 
-const SeoImage = "../assets/img/slide1.png";
-
 export default function Home() {
   return (
     <>

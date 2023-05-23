@@ -17,7 +17,7 @@ const Section1: FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide + 1) % 3);
-    }, 200000000000000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [currentSlide]);
@@ -68,6 +68,15 @@ const Section1: FC = () => {
                   fill
                   className={classes.imgSlide}
                 />
+              </div>
+              <div className={classes.wrapTextContent}>
+                <div className="absolute">
+                  <div className={classes.wrapItemFirst}>
+                    <div className={classes.coverItemFirst}>
+                      <div className={classes.itemFirst}>Steak In Offers You</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </li>
           </ul>

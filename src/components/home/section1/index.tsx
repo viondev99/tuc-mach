@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import classes from "./section1.module.scss";
 import Image from "next/image";
 import cx from "classnames";
@@ -70,10 +70,13 @@ const Section1: FC = () => {
                 />
               </div>
               <div className={classes.wrapTextContent}>
-                <div className="absolute">
-                  <div className={classes.wrapItemFirst}>
-                    <div className={classes.coverItemFirst}>
-                      <div className={classes.itemFirst}>Steak In Offers You</div>
+                <div className={classes.wrapItemTextContent}>
+                  <div className={classes.coverItemFirst}>
+                    <div className={classes.itemFirst}>Steak In Offers You</div>
+                  </div>
+                  <div className={classes.coverItemSecond}>
+                    <div className={classes.itemSecond}>
+                      Fresh & Tasty Meals
                     </div>
                   </div>
                 </div>
@@ -94,16 +97,18 @@ const Section1: FC = () => {
               className={classes.arrowRightSlide}
             />
           </div>
-          <div className={classes.listDotSlide}>
-            {dotColors.map((isActive, index) => (
-              <div
-                key={index}
-                className={cx(classes.wrapDotItem, {
-                  [classes.selectedSlide]: isActive,
-                })}
-                onClick={() => handleDotClick(index)}
-              />
-            ))}
+          <div className={classes.wrapListDotSlide}>
+            <div className={classes.listDotSlide}>
+              {dotColors.map((isActive, index) => (
+                <div
+                  key={index}
+                  className={cx(classes.wrapDotItem, {
+                    [classes.selectedSlide]: isActive,
+                  })}
+                  onClick={() => handleDotClick(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -14,6 +14,10 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />

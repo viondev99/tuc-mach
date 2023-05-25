@@ -1,7 +1,8 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useMemo, useState } from "react";
 import classes from "./section1.module.scss";
 import Image from "next/image";
 import cx from "classnames";
+import Link from "next/link";
 
 import imgSlide1 from "../../../assets/img/slide1.png";
 import imgSlide2 from "../../../assets/img/slide2.png";
@@ -10,6 +11,22 @@ import imgSlide3 from "../../../assets/img/slide3.png";
 import arrowLeftSlide from "../../../assets/img/left-arrow-bg.png";
 import arrowRightSlide from "../../../assets/img/right-arrow-bg.png";
 
+interface LinkActionSlide1 {
+  id: string;
+  value: string;
+}
+
+const listLinkActionsSlide1: LinkActionSlide1[] = [
+  {
+    id: "view-menu",
+    value: "VIEW MENU",
+  },
+  {
+    id: "book-a-table",
+    value: "BOOK A TABLE",
+  },
+];
+
 const Section1: FC = () => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [dotColors, setDotColors] = useState<boolean[]>([true, false, false]);
@@ -17,7 +34,7 @@ const Section1: FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide + 1) % 3);
-    }, 10000);
+    }, 1000000);
 
     return () => clearInterval(interval);
   }, [currentSlide]);
@@ -49,6 +66,95 @@ const Section1: FC = () => {
     setDotColors(updatedColors);
   };
 
+  const renderContentSlide = useMemo(() => {
+    switch (currentSlide) {
+      case 0:
+        return (
+          <div className={classes.wrapItemTextContent}>
+            <div className={classes.coverItemFirst}>
+              <div className={classes.itemFirst}>Steak In Offers You</div>
+            </div>
+            <div className={classes.coverItemSecond}>
+              <div className={classes.itemSecond}>Fresh & Tasty Meals</div>
+            </div>
+            <div className={classes.coverItemThird}>
+              <div className={classes.itemThird}>
+                Steak In has the perfect place to enjoy fine food and great
+                cocktails with
+                <br />
+                excellent service, in comfortable atmospheric surroundings.
+              </div>
+            </div>
+            <div className={classes.coverItemFourth}>
+              <div className={classes.listActions}>
+                {listLinkActionsSlide1.map((it) => (
+                  <Link
+                    href={`#`}
+                    key={it.id}
+                    className={cx({
+                      [classes.item1]: it.id === "view-menu",
+                      [classes.item2]: it.id === "book-a-table",
+                    })}
+                  >
+                    {it.value}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+
+      case 1:
+        return (
+          <div className={classes.wrapItemTextContent}>
+            <div className={classes.coverItemFirst}>
+              <div className={classes.itemFirst}>Unique Food</div>
+            </div>
+            <div className={classes.coverItemSecond}>
+              <div className={classes.itemSecond}>For Unique Occasions</div>
+            </div>
+            <div className={classes.coverItemFourth}>
+              <div className={classes.listActions}>
+                <Link href={`#`} className={classes.actionSlide2}>
+                  Book Your Table Now
+                </Link>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 2:
+        return (
+          <div className={classes.wrapItemTextContent}>
+            <div className={classes.coverItemFirst}>
+              <div className={classes.itemFirst}>We Serve Quality Food</div>
+            </div>
+            <div className={classes.coverItemSecond}>
+              <div className={classes.itemSecond}>We Serve Quality Food</div>
+            </div>
+            <div className={classes.coverItemThird}>
+              <div className={classes.itemThird}>
+                Steak In has the perfect place to enjoy fine food and great
+                cocktails with
+                <br />
+                excellent service, in comfortable atmospheric surroundings.
+              </div>
+            </div>
+            <div className={classes.coverItemFourth}>
+              <div className={classes.listActions}>
+                <Link href={`#`} className={classes.actionSlide3}>
+                  View Menu
+                </Link>
+              </div>
+            </div>
+          </div>
+        );
+
+      default:
+        break;
+    }
+  }, [currentSlide]);
+
   return (
     <div className={classes.Container}>
       <div className={classes.wrapSection}>
@@ -70,16 +176,7 @@ const Section1: FC = () => {
                 />
               </div>
               <div className={classes.wrapTextContent}>
-                <div className={classes.wrapItemTextContent}>
-                  <div className={classes.coverItemFirst}>
-                    <div className={classes.itemFirst}>Steak In Offers You</div>
-                  </div>
-                  <div className={classes.coverItemSecond}>
-                    <div className={classes.itemSecond}>
-                      Fresh & Tasty Meals
-                    </div>
-                  </div>
-                </div>
+                {renderContentSlide}
               </div>
             </li>
           </ul>

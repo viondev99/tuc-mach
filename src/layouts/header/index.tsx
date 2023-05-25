@@ -100,6 +100,7 @@ const Header: FC = () => {
                       classes.itemLink,
                       {
                         [classes.colorBlackLink]: isScrolled,
+                        [classes.itemBlog]: it.id === 'blog',
                       },
                       selectedLink === it.id ? classes.selected : "",
                       asPath === "/"

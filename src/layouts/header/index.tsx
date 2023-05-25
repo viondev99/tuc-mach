@@ -12,10 +12,10 @@ import { useRouter } from "next/router";
 
 export const listMenuHeader: listMenuHeaderModal[] = [
   { id: "home", name: "HOME", url: "/" },
-  { id: "menu", name: "MENU", url: "/menu" },
-  { id: "book_table", name: "BOOK A TABLE", url: "/book-a-table" },
-  { id: "about", name: "ABOUT", url: "/about" },
-  { id: "blog", name: "BLOG", url: "/blog" },
+  { id: "menu", name: "MENU", url: "#" },
+  { id: "book_table", name: "BOOK A TABLE", url: "#" },
+  { id: "about", name: "ABOUT", url: "#" },
+  { id: "blog", name: "BLOG", url: "#" },
 ];
 
 const Header: FC = () => {

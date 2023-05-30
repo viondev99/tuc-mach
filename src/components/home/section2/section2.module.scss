@@ -1,20 +1,20 @@
 @import "../../../styles/variables.module.scss";
 
 .Container {
-  margin: 210px 0;
+  margin: 110px 0;
+  overflow: hidden;
+}
+
+.wrapTopContent {
   text-align: center;
+}
+
+.titleHello {
   color: $light-yellow;
   font-family: "Ruthie", cursive;
-  font-size: 64px;
+  font-size: 45px;
   font-weight: 400;
   line-height: 1;
+  margin-bottom: 5px;
   text-transform: capitalize;
-
-  @media (min-width: 768px) and (max-width: 991px) {
-    font-size: 56px;
-  }
-
-  @media (max-width: 767px) {
-    font-size: 44px;
-  }
 }

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from "react";
+import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
 import classes from "./section1.module.scss";
 import Image from "next/image";
 import cx from "classnames";
@@ -34,7 +34,7 @@ const Section1: FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide + 1) % 3);
-    }, 1000000);
+    }, 20000);
 
     return () => clearInterval(interval);
   }, [currentSlide]);
@@ -44,22 +44,25 @@ const Section1: FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSlide]);
 
-  const handleNextSlide = () => {
+  const handleNextSlide = useCallback(() => {
     const nextSlide = (currentSlide + 1) % 3;
     setCurrentSlide(nextSlide);
     updateDotColors(nextSlide);
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentSlide]);
 
-  const handlePrevSlide = () => {
+  const handlePrevSlide = useCallback(() => {
     const prevSlide = (currentSlide + 2) % 3;
     setCurrentSlide(prevSlide);
     updateDotColors(prevSlide);
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentSlide]);
 
-  const handleDotClick = (index: number) => {
+  const handleDotClick = useCallback((index: number) => {
     setCurrentSlide(index);
     updateDotColors(index);
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const updateDotColors = (activeIndex: number) => {
     const updatedColors = dotColors.map((_, index) => index === activeIndex);

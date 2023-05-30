@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Tuc Mach Restaurant</title>
+        <title>Tuc Mach Restaurant | Beer, Wine and Cigar</title>
         <meta name="og:title" content="Nhà Hàng Túc Mạch - Đậm Chất, Đậm Vị" />
         <meta name="og:description" content="Hân Hạnh Phục Vụ Quý Khách" />
         <meta
@@ -16,7 +16,7 @@ export default function Home() {
           name="og:image"
           content="http://7oroof.com/demos/steakin/assets/images/sliders/slide-bg/2.jpg"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/tuc-mach.favicon.ico" />
       </Head>
       <HomePage />
     </>

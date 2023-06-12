@@ -7,6 +7,89 @@ import iconShape from "../../../assets/icons/shape-4.png";
 import imgSignature from "../../../assets/img/signiture.png";
 import bgSection2 from "../../../assets/img/bg-section2.png";
 
+import imgMenu1 from "../../../assets/img/img_section2_home/menu1.png";
+import imgMenu2 from "../../../assets/img/img_section2_home/menu2.png";
+import imgMenu3 from "../../../assets/img/img_section2_home/menu3.png";
+import imgMenu4 from "../../../assets/img/img_section2_home/menu4.png";
+import imgMenu5 from "../../../assets/img/img_section2_home/menu5.png";
+import imgMenu6 from "../../../assets/img/img_section2_home/menu6.png";
+import imgMenu7 from "../../../assets/img/img_section2_home/menu7.png";
+import imgMenu8 from "../../../assets/img/img_section2_home/menu8.png";
+
+const listMenu = [
+  {
+    id: "menu1",
+    price: "$24.95",
+    title: "Grilled American Fillet",
+    content:
+      "Pork fillet, ginger, garlic, honey, pepper & canola oil.creamy chesapeake crab dip with artichoke, baked and topped with cheddar cheese, with crusty bread.",
+    image: imgMenu1,
+  },
+
+  {
+    id: "menu2",
+    price: "$34.95",
+    title: "Grilled Seafood Paella",
+    content:
+      "Monkfish, onion, paella rice, garlic & smoked paprika, creamy chesapeake crab dip with artichoke, baked and topped with cheddar cheese, with crusty bread.",
+    image: imgMenu2,
+  },
+
+  {
+    id: "menu3",
+    price: "$38.95",
+    title: "Roast Sea Trout",
+    content:
+      "Roast trout, English asparagus, watercress & royals, creamy chesapeake crab dip with artichoke, baked and topped with cheddar cheese, with crusty bread.",
+    image: imgMenu3,
+  },
+
+  {
+    id: "menu4",
+    price: "$18.95",
+    title: "Smoked Paprika",
+    content:
+      "Red peppers, roasted garlic, lemon slices, olives & mint, creamy crab dip with artichoke, baked and topped with cheddar cheese, with crusty bread for dipping.",
+    image: imgMenu4,
+  },
+
+  {
+    id: "menu5",
+    price: "$13.95",
+    title: "Smoked Hummus",
+    content:
+      "Roast trout, English asparagus, watercress & royals, creamy chesapeake crab dip with artichoke, baked and topped with cheddar cheese, with crusty bread.",
+    image: imgMenu5,
+  },
+
+  {
+    id: "menu6",
+    price: "$33.95",
+    title: "Chicken Breast",
+    content:
+      "Red peppers, roasted garlic, lemon slices, olives & mint, creamy crab dip with artichoke, baked and topped with cheddar cheese, with crusty bread for dipping.",
+    image: imgMenu6,
+  },
+
+  {
+    id: "menu7",
+    price: "$29.95",
+    title: "Roasted Steak Roulade",
+    content:
+      "Roast trout, English asparagus, watercress & royals, creamy chesapeake crab dip with artichoke, baked and topped with cheddar cheese, with crusty bread.",
+    image: imgMenu7,
+  },
+
+  {
+    id: "menu8",
+    price: "$29.95",
+    title: "Roasted Steak Roulade",
+    content:
+      "Red peppers, roasted garlic, lemon slices, olives & mint, creamy crab dip with artichoke, baked and topped with cheddar cheese, with crusty bread for dipping.",
+    image: imgMenu8,
+  },
+];
+
 const Section2: FC = () => {
   return (
     <div className={classes.Container}>
@@ -31,7 +114,7 @@ const Section2: FC = () => {
         </div>
       </Row>
 
-      <Row className="pl-0 pr-0 mr-auto ml-auto mt-24">
+      <Row className="pl-0 pr-0 mr-auto ml-auto">
         <div className={classes.wrapBodyContent}>
           <div className={classes.coverBodyContent}>
             <div className="relative text-center">
@@ -42,7 +125,14 @@ const Section2: FC = () => {
               />
               <div className={classes.wrapMenuSection2}>
                 <div className={classes.coverMenu}>
-                  <div className={classes.setSize}></div>
+                  <div className={classes.setSize}>
+                    <div className={classes.wrapRowMenu}>
+                      <div className={classes.paddingMenu}>
+                        <div className={classes.boxShadowMenu}>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

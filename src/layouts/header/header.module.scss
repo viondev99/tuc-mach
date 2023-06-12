@@ -100,7 +100,7 @@
   margin-bottom: 8px;
   background-color: transparent;
   background-image: none;
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   border-radius: 4px;
   @media only screen and (min-width: 320px) and (max-width: 767px) {
     border-color: $black;
@@ -110,7 +110,7 @@
   }
 
   &.borderBlack {
-    border: 3px solid $white;
+    border: 2px solid $white;
   }
 
   &.openMenu {

@@ -166,3 +166,52 @@
   box-shadow: 0px 1px 73px 0px rgba(40, 40, 40, 0.1);
   overflow: hidden;
 }
+
+.rowMenu {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.itemMenu {
+  padding: 0 0;
+  width: 50%;
+}
+
+.wrapItemMenu {
+  background-color: $white;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.wrapContentLeft {
+  padding: 30px 15px;
+  margin: 10px;
+  border: 1px dashed $lighter-yellow;
+  height: 272px;
+}
+
+.contentLeft {
+  padding: 0 !important;
+  position: relative;
+  min-height: 1px;
+
+  @media (min-width: 992px) {
+    width: 50%;
+    float: left;
+  }
+
+  @media (max-width: 767.98px) {
+    padding-left: 15px !important;
+    width: 100%;
+    float: left;
+  }
+}
+
+.imgRight {
+  height: 292px;
+  margin-bottom: 0;
+  overflow: hidden;
+  position: relative;
+}

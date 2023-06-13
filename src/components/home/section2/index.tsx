@@ -1,7 +1,8 @@
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 import classes from "./section2.module.scss";
 import Image from "next/image";
 import { Row } from "reactstrap";
+import cx from "classnames";
 
 import iconShape from "../../../assets/icons/shape-4.png";
 import imgSignature from "../../../assets/img/signiture.png";
@@ -91,6 +92,27 @@ const listMenu = [
 ];
 
 const Section2: FC = () => {
+  const renderListMenu = useMemo(() => {
+    return (
+      <>
+        {listMenu.map((it) => (
+          <div className={classes.itemMenu} key={it.id}>
+            <div className={classes.wrapItemMenu}>
+              <div className={classes.contentLeft}>
+                <div className={classes.wrapContentLeft}>
+                  <span>{it.price}</span>
+                </div>
+              </div>
+              <div className={cx(classes.imgRight, classes.contentLeft)}>
+                <Image src={it.image} alt="" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </>
+    );
+  }, []);
+
   return (
     <div className={classes.Container}>
       <Row className={classes.wrapTopContent}>
@@ -129,6 +151,9 @@ const Section2: FC = () => {
                     <div className={classes.wrapRowMenu}>
                       <div className={classes.paddingMenu}>
                         <div className={classes.boxShadowMenu}>
+                          <div className={classes.rowMenu}>
+                            {renderListMenu}
+                          </div>
                         </div>
                       </div>
                     </div>

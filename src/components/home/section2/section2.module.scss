@@ -1,7 +1,7 @@
 @import "../../../styles/variables.module.scss";
 
 .Container {
-  margin: 110px 0;
+  padding: 110px 0;
   overflow: hidden;
 
   @media (max-width: 767.98px) {
@@ -106,6 +106,10 @@
   width: 100%;
   z-index: 0;
   object-fit: cover;
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    display: none;
+  }
 }
 
 .wrapMenuSection2 {
@@ -117,11 +121,11 @@
     width: 1170px;
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 992px) and (max-width: 1199.98px) {
     width: 970px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 991.98px) {
     width: 750px;
   }
 }
@@ -143,7 +147,7 @@
   }
 
   @media (min-width: 768px) {
-    width: 750px;
+    width: 100%;
     float: left;
   }
 }
@@ -165,24 +169,50 @@
 .boxShadowMenu {
   box-shadow: 0px 1px 73px 0px rgba(40, 40, 40, 0.1);
   overflow: hidden;
+
+  @media (max-width: 767.98px) {
+    box-shadow: none;
+  }
 }
 
 .rowMenu {
   margin-right: -15px;
   margin-left: -15px;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: 767.98px) {
+    display: block;
+  }
 }
 
 .itemMenu {
   padding: 0 0;
   width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .wrapItemMenu {
+  padding-right: 15px;
+  padding-left: 15px;
   background-color: $white;
   overflow: hidden;
   text-align: center;
   margin-bottom: 0;
   position: relative;
+
+  &.setPaddingRight {
+    padding-right: 0;
+  }
+
+  &.setPaddingLeft {
+    padding-left: 0 !important;
+  }
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    min-height: 600px;
+  }
 }
 
 .wrapContentLeft {
@@ -190,6 +220,14 @@
   margin: 10px;
   border: 1px dashed $lighter-yellow;
   height: 272px;
+  font-family: "Poppins", sans-serif;
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    max-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+  }
 }
 
 .contentLeft {
@@ -209,9 +247,78 @@
   }
 }
 
+.shapeLeft {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 13px;
+  height: 124px;
+
+  @media (max-width: 991.98px) {
+    display: none;
+  }
+}
+
+.shapeRight {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  width: 13px;
+  height: 124px;
+
+  @media (max-width: 991.98px) {
+    display: none;
+  }
+}
+
+.recommendedTag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 3px 6px;
+  background-color: $light-yellow;
+  color: $white;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
 .imgRight {
   height: 292px;
   margin-bottom: 0;
   overflow: hidden;
   position: relative;
+
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    max-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.itemPrice {
+  margin-bottom: 10px;
+  font-size: 18px;
+  position: relative;
+  font-weight: 600;
+  line-height: 29px;
+  color: $light-yellow;
+  text-align: center;
+}
+
+.itemTitle {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 29px;
+  color: $lighter-black;
+  margin-bottom: 0;
+}
+
+.itemContent {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 23px;
+  margin-bottom: 0;
+  color: $grey;
+  text-align: center;
 }

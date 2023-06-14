@@ -7,6 +7,8 @@ import cx from "classnames";
 import iconShape from "../../../assets/icons/shape-4.png";
 import imgSignature from "../../../assets/img/signiture.png";
 import bgSection2 from "../../../assets/img/bg-section2.png";
+import shapeLeft from '../../../assets/img/shape-left.png';
+import shapeRight from '../../../assets/img/shape-right.png';
 
 import imgMenu1 from "../../../assets/img/img_section2_home/menu1.png";
 import imgMenu2 from "../../../assets/img/img_section2_home/menu2.png";
@@ -97,15 +99,86 @@ const Section2: FC = () => {
       <>
         {listMenu.map((it) => (
           <div className={classes.itemMenu} key={it.id}>
-            <div className={classes.wrapItemMenu}>
-              <div className={classes.contentLeft}>
-                <div className={classes.wrapContentLeft}>
-                  <span>{it.price}</span>
-                </div>
-              </div>
-              <div className={cx(classes.imgRight, classes.contentLeft)}>
-                <Image src={it.image} alt="" />
-              </div>
+            <div
+              className={cx(classes.wrapItemMenu, {
+                [classes.setPaddingRight]:
+                  it.id === "menu1" ||
+                  it.id === "menu3" ||
+                  it.id === "menu5" ||
+                  it.id === "menu7",
+                [classes.setPaddingLeft]:
+                  it.id === "menu2" ||
+                  it.id === "menu4" ||
+                  it.id === "menu6" ||
+                  it.id === "menu8",
+              })}
+            >
+              {(it.id === "menu1" ||
+                it.id === "menu2" ||
+                it.id === "menu5" ||
+                it.id === "menu6") && (
+                <>
+                  <div className={classes.contentLeft}>
+                    <div className={classes.wrapContentLeft}>
+                      <span className={classes.itemPrice}>{it.price}</span>
+                      <h3 className={classes.itemTitle}>{it.title}</h3>
+                      <div className="w-full flex justify-center items-center mt-4 mb-4">
+                        <Image
+                          src={iconShape}
+                          alt="sticker"
+                          className={classes.iconShape}
+                        />
+                      </div>
+                      <p className={classes.itemContent}>{it.content}</p>
+                    </div>
+                  </div>
+                  <div className={cx(classes.imgRight, classes.contentLeft)}>
+                    {it.id === "menu5" && (
+                      <div className={classes.recommendedTag}>
+                        CHEF SELECTION
+                      </div>
+                    )}
+                    <Image src={shapeLeft} alt="" className={classes.shapeLeft} />
+                    <Image
+                      src={it.image}
+                      alt=""
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                </>
+              )}
+              {(it.id === "menu3" ||
+                it.id === "menu4" ||
+                it.id === "menu7" ||
+                it.id === "menu8") && (
+                <>
+                  <div className={cx(classes.imgRight, classes.contentLeft)}>
+                    {it.id === "menu4" && (
+                      <div className={classes.recommendedTag}>RECOMMENDED</div>
+                    )}
+                    <Image src={shapeRight} alt="" className={classes.shapeRight} />
+                    <Image
+                      src={it.image}
+                      alt=""
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className={classes.contentLeft}>
+                    <div className={classes.wrapContentLeft}>
+                      <span className={classes.itemPrice}>{it.price}</span>
+                      <h3 className={classes.itemTitle}>{it.title}</h3>
+                      <div className="w-full flex justify-center items-center mt-4 mb-4">
+                        <Image
+                          src={iconShape}
+                          alt="sticker"
+                          className={classes.iconShape}
+                        />
+                      </div>
+                      <p className={classes.itemContent}>{it.content}</p>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         ))}

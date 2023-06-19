@@ -6,6 +6,7 @@
 
   @media (max-width: 767.98px) {
     margin: 60px 0;
+    padding: 20px 0;
   }
 }
 
@@ -21,6 +22,7 @@
 
   @media (max-width: 767.98px) {
     width: 100%;
+    margin-bottom: 70px;
   }
 }
 
@@ -107,7 +109,7 @@
   z-index: 0;
   object-fit: cover;
 
-  @media (min-width: 768px) and (max-width: 991.98px) {
+  @media (max-width: 991.98px) {
     display: none;
   }
 }
@@ -191,6 +193,13 @@
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+
+  @media (max-width: 767.98px) {
+    max-width: 290px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+  }
 }
 
 .wrapItemMenu {
@@ -213,6 +222,10 @@
   @media (min-width: 768px) and (max-width: 991.98px) {
     min-height: 600px;
   }
+
+  @media (max-width: 767.98px) {
+    padding: 0;
+  }
 }
 
 .wrapContentLeft {
@@ -227,6 +240,14 @@
     margin-left: auto;
     margin-right: auto;
     height: auto;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    padding: 5px;
+  }
+
+  @media (max-width: 767.98px) {
+    margin: 10px 0;
   }
 }
 
@@ -244,6 +265,10 @@
     padding-left: 15px !important;
     width: 100%;
     float: left;
+  }
+
+  @media (max-width: 767.98px) {
+    padding: 0 !important;
   }
 }
 
@@ -317,8 +342,14 @@
 .itemContent {
   font-size: 13px;
   font-weight: 400;
-  line-height: 23px;
+  line-height: 20px;
   margin-bottom: 0;
   color: $grey;
   text-align: center;
+}
+
+.marginBot {
+  @media (max-width: 767.98px) {
+    margin-bottom: 10px;
+  }
 }

@@ -111,6 +111,7 @@ const Section2: FC = () => {
                   it.id === "menu4" ||
                   it.id === "menu6" ||
                   it.id === "menu8",
+                [classes.marginBot]: it.id === 'menu2' || it.id === 'menu6',
               })}
             >
               {(it.id === "menu1" ||

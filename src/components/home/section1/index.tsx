@@ -34,7 +34,7 @@ const Section1: FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide + 1) % 3);
-    }, 20000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [currentSlide]);
@@ -130,7 +130,7 @@ const Section1: FC = () => {
         return (
           <div className={classes.wrapItemTextContent}>
             <div className={classes.coverItemFirst}>
-              <div className={classes.itemFirst}>We Serve Quality Food</div>
+              <div className={classes.itemFirst}>Made With Love</div>
             </div>
             <div className={classes.coverItemSecond}>
               <div className={classes.itemSecond}>We Serve Quality Food</div>

@@ -1,14 +1,14 @@
 import React, { FC, useMemo } from "react";
 import classes from "./section2.module.scss";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Row } from "reactstrap";
 import cx from "classnames";
 
 import iconShape from "../../../assets/icons/shape-4.png";
 import imgSignature from "../../../assets/img/signiture.png";
 import bgSection2 from "../../../assets/img/bg-section2.png";
-import shapeLeft from '../../../assets/img/shape-left.png';
-import shapeRight from '../../../assets/img/shape-right.png';
+import shapeLeft from "../../../assets/img/shape-left.png";
+import shapeRight from "../../../assets/img/shape-right.png";
 
 import imgMenu1 from "../../../assets/img/img_section2_home/menu1.png";
 import imgMenu2 from "../../../assets/img/img_section2_home/menu2.png";
@@ -19,7 +19,15 @@ import imgMenu6 from "../../../assets/img/img_section2_home/menu6.png";
 import imgMenu7 from "../../../assets/img/img_section2_home/menu7.png";
 import imgMenu8 from "../../../assets/img/img_section2_home/menu8.png";
 
-const listMenu = [
+interface ListMenuSection2Home {
+  id: string;
+  price: string;
+  title: string;
+  content: string;
+  image: string | StaticImageData;
+}
+
+const listMenu: ListMenuSection2Home[] = [
   {
     id: "menu1",
     price: "$24.95",
@@ -111,7 +119,7 @@ const Section2: FC = () => {
                   it.id === "menu4" ||
                   it.id === "menu6" ||
                   it.id === "menu8",
-                [classes.marginBot]: it.id === 'menu2' || it.id === 'menu6',
+                [classes.marginBot]: it.id === "menu2" || it.id === "menu6",
               })}
             >
               {(it.id === "menu1" ||
@@ -139,7 +147,11 @@ const Section2: FC = () => {
                         CHEF SELECTION
                       </div>
                     )}
-                    <Image src={shapeLeft} alt="" className={classes.shapeLeft} />
+                    <Image
+                      src={shapeLeft}
+                      alt=""
+                      className={classes.shapeLeft}
+                    />
                     <Image
                       src={it.image}
                       alt=""
@@ -157,7 +169,11 @@ const Section2: FC = () => {
                     {it.id === "menu4" && (
                       <div className={classes.recommendedTag}>RECOMMENDED</div>
                     )}
-                    <Image src={shapeRight} alt="" className={classes.shapeRight} />
+                    <Image
+                      src={shapeRight}
+                      alt=""
+                      className={classes.shapeRight}
+                    />
                     <Image
                       src={it.image}
                       alt=""

@@ -35,13 +35,8 @@ const Section1: FC = () => {
     const interval = setInterval(() => {
       setCurrentSlide((currentSlide + 1) % 3);
     }, 10000);
-
-    return () => clearInterval(interval);
-  }, [currentSlide]);
-
-  useEffect(() => {
     updateDotColors(currentSlide);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    return () => clearInterval(interval);
   }, [currentSlide]);
 
   const handleNextSlide = useCallback(() => {

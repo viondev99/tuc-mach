@@ -14,7 +14,7 @@ export default function Home() {
         />
         <meta
           name="og:image"
-          content="http://7oroof.com/demos/steakin/assets/images/sliders/slide-bg/2.jpg"
+          content="https://res.6chcdn.feednews.com/assets/v2/9bd625c24299463e9522bef37a6c299d?quality=uhq&resize=720"
         />
         <link rel="icon" href="/tuc-mach.favicon.ico" />
       </Head>
